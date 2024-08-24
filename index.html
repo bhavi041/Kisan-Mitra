@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Mitra</title>
+    
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100%; /* Ensure html and body take full height */
+    }
+
+    body {
+    background: url('bg2.jpg') no-repeat center center/cover; /* Set background image */
+    background-attachment: fixed; /* Ensure background stays fixed during scroll */
+    }
+
+    /*navbar*/
+    .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    position: sticky;
+    top: 0;
+    width: 100%; /* Ensure navbar spans full width */
+    z-index: 1000; /* Keep navbar on top */
+    }
+    .navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 40px 0px;
+    }
+    .navbar ul li {
+    font-family: century;
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: relative;
+    }
+    .navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 25px;
+    transition: all .5s ease;
+    }
+    .navbar ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    background-color: transparent; /* Dropdown background */
+    top: 100%; /* Position dropdown below the parent */
+    left: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 999; /* Ensure dropdown is above other elements */
+    }
+    .navbar ul li ul.dropdown li {
+    width: 200px; /* Set dropdown item width */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add border between items */
+    }
+    .navbar ul li ul.dropdown li a {
+    display: block;
+    padding: 10px;
+    color: white; /* Dropdown item text color */
+    text-decoration: none;
+    transition: all .3s ease;
+    }
+    .navbar ul li ul.dropdown li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Dropdown item hover background */
+    }
+    .navbar ul li:hover > ul.dropdown {
+    display: block; /* Show dropdown on hover */
+    }
+    .navbar ul li a:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px white;
+    }
+
+/*home section*/
+    #home {
+    display: flex;
+    flex-direction: column; 
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh; /* Fit to viewport height */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    }
+
+    .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    }
+    .headings {
+    font-family: century;
+    font-size: 3rem;
+    text-align: center;
+    margin: 40px 0px;
+    }
+    .btn {
+    padding: 10px 35px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    outline: none;
+    transition: .6s ease;
+    }
+    .btn:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 5px white, 0 0 10px white;
+    font-weight: bold;
+    }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="#">Services &#x25BE;</a>
+                <ul class="dropdown">
+                    <li><a href="crop.html">Crop Suggestion</a></li>
+                    <li><a href="#">Market Price</a></li>
+                    <li><a href="#">Weather</a></li>
+                    <li><a href="https://krishijagran.com">News</a></li>
+                    <li><a href="#">Organic Farming</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>       
+    </nav>
+    <section id="home">
+        <div class="main">
+            <h1 class="headings">Kisan Mitra welcomes you!</h1>
+            <button class="btn">
+                Log In
+            </button>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kisan Mitra</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif; /* Professional and attractive font */
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(to bottom, white, green); /* White and green background */
+            color: #333; /* Dark text color for contrast */
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; /* Transparent background */
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 40px 0px;
+        }
+
+        .navbar ul li {
+            font-size: 1.1rem;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: green;
+            padding: 8px 25px;
+            transition: all .5s ease;
+        }
+
+        .navbar ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            top: 100%;
+            left: 0;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            z-index: 999;
+        }
+
+        .navbar ul li ul.dropdown li {
+            width: 200px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar ul li ul.dropdown li a {
+            display: block;
+            padding: 10px;
+            color: green;
+            text-decoration: none;
+            transition: all .3s ease;
+        }
+
+        .navbar ul li ul.dropdown li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .navbar ul li:hover > ul.dropdown {
+            display: block;
+        }
+
+        .navbar ul li a:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 10px white;
+        }
+
+        /* Main content section */
+        .about-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .about-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #006400; /* Dark green color */
+        }
+
+        .about-container p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Footer section */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #006400; /* Dark green color */
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="#">Services &#x25BE;</a>
+                <ul class="dropdown">
+                    <li><a href="crop.html">Crop Suggestion</a></li>
+                    <li><a href="#">Market Price</a></li>
+                    <li><a href="#">Weather</a></li>
+                    <li><a href="https://krishijagran.com">News</a></li>
+                    <li><a href="#">Organic Farming</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>       
+    </nav>
+
+    <!-- Main content section -->
+    <div class="about-container">
+        <h1>About Us - Kisan Mitra</h1>
+        <p>
+            Kisan Mitra aims to provide all the necessary information to farmers about crops and organic farming. Our goal is to empower farmers with the knowledge and tools needed to maximize their yield and promote sustainable agricultural practices. Whether you are looking for crop suggestions, market prices, weather updates, or the latest news in the agriculture sector, Kisan Mitra is here to support you every step of the way.
+        </p>
+        <p>For any Queries you can reach out to us using out Contact form</p>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        Developed in 2024 by Bhavi | All rights reserved
+    </div>
+</body>
+</html>

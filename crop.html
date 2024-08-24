@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Suggestion</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html, body {
+            height: 100%; /* Ensure html and body take full height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        body {
+            background: url('bg2.jpg') no-repeat center center/cover; /* Set background image */
+            background-attachment: fixed; /* Ensure background stays fixed during scroll */
+            color: black;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; /* Remove dark background */
+            position: sticky;
+            top: 0;
+            width: 100%; /* Ensure navbar spans full width */
+            z-index: 1000; /* Keep navbar on top */
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 40px 0px;
+        }
+
+        .navbar ul li {
+            font-family: century;
+            font-size: 1.1rem;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 25px;
+            transition: all .5s ease;
+        }
+
+        .navbar ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            background-color: transparent; /* Dropdown background */
+            top: 100%; /* Position dropdown below the parent */
+            left: 0;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            z-index: 999; /* Ensure dropdown is above other elements */
+        }
+
+        .navbar ul li ul.dropdown li {
+            width: 200px; /* Set dropdown item width */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add border between items */
+        }
+
+        .navbar ul li ul.dropdown li a {
+            display: block;
+            padding: 10px;
+            color: white; /* Dropdown item text color */
+            text-decoration: none;
+            transition: all .3s ease;
+        }
+
+        .navbar ul li ul.dropdown li a:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* Dropdown item hover background */
+        }
+
+        .navbar ul li:hover > ul.dropdown {
+            display: block; /* Show dropdown on hover */
+        }
+
+        .navbar ul li a:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 10px white;
+        }
+
+        /* Form Section */
+        .form-container {
+            width: 350px;
+            height: auto; /* Adjust height as per content */
+            margin: 30px auto; /* Add margin for better spacing */
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
+            padding: 20px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: black;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%; /* Make input fields full width */
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .btn-info {
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+            transition: .6s ease;
+        }
+
+        .btn-info:hover {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="#">Services &#x25BE;</a>
+                <ul class="dropdown">
+                    <li><a href="crop.html">Crop Suggestion</a></li>
+                    <li><a href="#">Market Price</a></li>
+                    <li><a href="#">Weather</a></li>
+                    <li><a href="https://krishijagran.com">News</a></li>
+                    <li><a href="#">Organic Farming</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>       
+    </nav>
+
+    <!-- Form Section -->
+    <div class="form-container">
+        <h2><b>Find out the most suitable crop to grow in your farm</b></h2>
+        <br />
+        <form method="POST" action="{{ url_for('crop_prediction') }}">
+            <div class="form-group">
+                <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="Nitrogen"
+                    name="nitrogen"
+                    placeholder="Enter the value (example:50)"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="Phosphorous" style="font-size: 17px"><b>Phosphorous</b></label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="Phosphorous"
+                    name="phosphorous"
+                    placeholder="Enter the value (example:50)"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="Pottasium" style="font-size: 17px"><b>Potassium</b></label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="Pottasium"
+                    name="pottasium"
+                    placeholder="Enter the value (example:50)"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="ph" style="font-size: 17px"><b>pH level</b></label>
+                <input
+                    type="number"
+                    step="0.01"
+                    class="form-control"
+                    id="ph"
+                    name="ph"
+                    placeholder="Enter the value"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="Rainfall" style="font-size: 17px"><b>Rainfall (in mm)</b></label>
+                <input
+                    type="number"
+                    step="0.01"
+                    class="form-control"
+                    id="Rainfall"
+                    name="rainfall"
+                    placeholder="Enter the value"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="State" style="font-size: 17px "><b>State</b></label>
+                <select
+                    onchange="print_city('state', this.selectedIndex);"
+                    id="sts"
+                    name="stt"
+                    class="form-control"
+                    required
+                ></select>
+                <br />
+                <label for="City" style="font-size: 17px"><b>City</b></label>
+                <select
+                    id="state"
+                    class="form-control"
+                    name="city"
+                    required
+                ></select>
+                <script language="javascript">
+                    print_state("sts");
+                </script>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button
+                    type="submit"
+                    class="btn btn-info"
+                    style="font-weight: bold; width: 130px; height:50px; border-radius:12px; font-size: 21px;"
+                >
+                    Predict
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

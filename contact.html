@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100%; /* Ensure html and body take full height */
+    }
+
+    body {
+    background: url('bg2.jpg') no-repeat center center/cover; /* Set background image */
+    background-attachment: fixed; /* Ensure background stays fixed during scroll */
+    }
+    /*navbar*/
+    .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    position: sticky;
+    top: 0;
+    width: 100%; /* Ensure navbar spans full width */
+    z-index: 1000; /* Keep navbar on top */
+    }
+    .navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 40px 0px;
+    }
+    .navbar ul li {
+    font-family: century;
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: relative;
+    }
+    .navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 25px;
+    transition: all .5s ease;
+    }
+    .navbar ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    background-color: transparent; /* Dropdown background */
+    top: 100%; /* Position dropdown below the parent */
+    left: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 999; /* Ensure dropdown is above other elements */
+    }
+    .navbar ul li ul.dropdown li {
+    width: 200px; /* Set dropdown item width */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add border between items */
+    }
+    .navbar ul li ul.dropdown li a {
+    display: block;
+    padding: 10px;
+    color: white; /* Dropdown item text color */
+    text-decoration: none;
+    transition: all .3s ease;
+    }
+    .navbar ul li ul.dropdown li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Dropdown item hover background */
+    }
+    .navbar ul li:hover > ul.dropdown {
+    display: block; /* Show dropdown on hover */
+    }
+    .navbar ul li a:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px white;
+    }
+
+    /*Contact us */
+    .container {
+    height: 100vh; /* Fit to viewport height */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    }
+    .container form {
+    width: 670px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+    }
+    .container form h1 {
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+    width: 500px;
+    text-align: center;
+    }
+    .container form input {
+    width: 290px;
+    height: 40px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    margin-bottom: 10px;
+    background: none;
+    border-bottom: 2px solid #fff;
+    }
+    .container form input::placeholder {
+    color: #ddd;
+    }
+    .container form #lastName,
+    .container form #mobile {
+    margin-left: 20px;
+    }
+    .container form h4 {
+    color: #fff;
+    font-weight: 300;
+    width: 600px;
+    margin-top: 20px;
+    }
+    .container form textarea {
+    background: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-weight: 200;
+    font-size: 15px;
+    padding: 10px;
+    outline: none;
+    width: 600px; /* Fixed width */
+    height: 80px; /* Fixed height */
+    }
+    textarea::-webkit-scrollbar {
+    width: 1em;
+    }
+    textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(194,194,194,0.713);
+    }
+    .container form #button {
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+    width: 100px;
+    padding: 0;
+    margin-right: 500px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    }
+    .container form #button:hover {
+    opacity: 0.7;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="#">Services &#x25BE;</a>
+                <ul class="dropdown">
+                    <li><a href="#">Crop Suggestion</a></li>
+                    <li><a href="#">Market Price</a></li>
+                    <li><a href="#">Weather</a></li>
+                    <li><a href="https://krishijagran.com">News</a></li>
+                    <li><a href="#">Organic Farming</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>       
+    </nav>
+    <div class="container">
+        <form>
+            <h1>Contact Us</h1>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="mobile" placeholder="Mobile" required>
+            <h4>Type Your Message Here...</h4>
+            <textarea required></textarea>
+            <input type="submit" value="Send" id="button">
+        </form>
+    </div>
+    
+</body>
+</html>    
